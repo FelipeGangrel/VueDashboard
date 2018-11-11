@@ -1,17 +1,20 @@
 <template lang="pug">
   aside#sidebar(
-    @mouseover="toggleMouseOver"
-    @mouseout="toggleMouseOver"
-    :class="{expanded: isExpanded}")
-    div.lock(@click="toggleLock")
+    @mouseover="mouseOver=true"
+    @mouseout="mouseOver=false"
+    :class="{'lock': $store.getters.sidebarLocked, 'expanded': $store.getters.sidebarExpanded}")
+
+    div.lock-toggle(@click="toggleLock")
       fa-icon(icon="list-ul" v-show="lock")
       fa-icon(icon="bars" v-show="!lock")
+
     section
       v-sidebar-menu(icon="cube" title="Components")
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
       v-sidebar-menu(icon="cube" title="Charts")
+
 </template>
 
 <script>
@@ -32,20 +35,18 @@ export default {
   },
   computed: {
     isExpanded() {
-      return this.mouseOver || this.lock;
+      return this.mouseOver || this.$store.getters.sidebarLocked;
     }
   },
   watch: {
     isExpanded(value) {
-      this.$store.dispatch('sidebarExpandedToggle');
-    }
+      this.$store.dispatch('sidebarExpanded', value);
+    },
   },
   methods: {
-    toggleMouseOver() {
-      this.mouseOver = !this.mouseOver;
-    },
     toggleLock() {
-      this.lock = !this.lock;
+      const state = this.$store.getters.sidebarLocked;
+      this.$store.dispatch('sidebarLocked', !state);
     }
   }
 }
@@ -62,21 +63,32 @@ export default {
     background-color: #212121;
     color: #cccccc;
     box-shadow: 0px 0px 15px 2px rgba(#000, .4);
+    overflow: hidden;
 
     transition-property: top,left,width;
     transition-duration: .2s,.35s,.35s;
     transition-timing-function: linear,linear,ease;
-    // @include slideInLeft();
 
-    @media only screen and (min-width: 801px) {
+    &:hover, &.lock {
+      width: 260px;
+    }
+    &.lock {
+      position: relative;
+    }
+
+    @media only screen and (max-width: 800px) {
+      position: relative;
+      width: 260px;
+      margin-left: -260px;
       &.expanded {
-        width: 260px;
+        margin-left: 0px;
       }
     }
 
+
   }
 
-  div.lock {
+  div.lock-toggle {
     width: 44px;
     height: 44px;
     display: flex;
@@ -94,7 +106,6 @@ export default {
       display: none;
     }
   }
-
 
   .fadeInLeft {
     @include fadeInLeft();

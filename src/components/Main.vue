@@ -1,5 +1,5 @@
 <template lang="pug">
-  #main
+  #main(:class="{'sidebar-expanded' : sidebarExpanded}")
     header
       nav
         div.toggle-sidebar
@@ -18,9 +18,17 @@ export default {
     return {
     }
   },
+  computed: {
+    sidebarExpanded() {
+      return this.$store.getters.sidebarExpanded;
+    }
+  },
   methods: {
     toggleSidebar() {
-      this.$store.dispatch('sidebarExpandedToggle');
+      const expanded = this.$store.getters.sidebarExpanded;
+      const locked = this.$store.getters.sidebarLocked;
+      this.$store.dispatch('sidebarExpanded', !expanded);
+      this.$store.dispatch('sidebarLocked', !locked);
     }
   }
 }
@@ -30,13 +38,18 @@ export default {
   #main {
     background-color: #FAFAFA;
     width: 100%;
-    // min-height: 100vh;
-    margin-left: 80px;
+    min-height: 100vh;
     background-color: #FAFAFA;
+    margin-left: 80px;
 
-    transition-property: margin-left;
-    transition-duration: .35s;
-    transition-timing-function: ease;
+    // transition-property: margin-left;
+    // transition-duration: .1s;
+    // transition-timing-function: ease;
+
+    &.sidebar-expanded {
+      margin-left: 0px;
+      width: calc(100vw - 260px);
+    }
 
     header {
       background-color: #4a3faf;
@@ -67,6 +80,11 @@ export default {
 
     #container {
       margin-top: -20px;
+    }
+
+    @media only screen and (max-width: 800px) {
+      width: 100vw;
+      margin-left: 0px;
     }
 
 

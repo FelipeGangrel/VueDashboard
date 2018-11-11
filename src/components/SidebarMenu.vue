@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import ElementResizeEvent from "element-resize-event";
-
 export default {
   name: "SidebarMenu",
   data() {
