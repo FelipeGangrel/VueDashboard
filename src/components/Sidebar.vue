@@ -13,7 +13,35 @@
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="cube" title="Charts")
+      v-sidebar-menu(icon="cube" title="Components")
+        v-sidebar-menu-item(short="ca" title="Cards")
+        v-sidebar-menu-item(short="bt" title="Buttons")
+        v-sidebar-menu-item(short="f" title="Form")
+      v-sidebar-menu(icon="cube" title="Components")
+        v-sidebar-menu-item(short="ca" title="Cards")
+        v-sidebar-menu-item(short="bt" title="Buttons")
+        v-sidebar-menu-item(short="f" title="Form")
+      v-sidebar-menu(icon="cube" title="Components")
+        v-sidebar-menu-item(short="ca" title="Cards")
+        v-sidebar-menu-item(short="bt" title="Buttons")
+        v-sidebar-menu-item(short="f" title="Form")
+      v-sidebar-menu(icon="cube" title="Components")
+        v-sidebar-menu-item(short="ca" title="Cards")
+        v-sidebar-menu-item(short="bt" title="Buttons")
+        v-sidebar-menu-item(short="f" title="Form")
+      v-sidebar-menu(icon="cube" title="Components")
+        v-sidebar-menu-item(short="ca" title="Cards")
+        v-sidebar-menu-item(short="bt" title="Buttons")
+        v-sidebar-menu-item(short="f" title="Form")
+      v-sidebar-menu(icon="cube" title="Components")
+        v-sidebar-menu-item(short="ca" title="Cards")
+        v-sidebar-menu-item(short="bt" title="Buttons")
+        v-sidebar-menu-item(short="f" title="Form")
+      v-sidebar-menu(icon="cube" title="Components")
+        v-sidebar-menu-item(short="ca" title="Cards")
+        v-sidebar-menu-item(short="bt" title="Buttons")
+        v-sidebar-menu-item(short="f" title="Form")
+
 
 </template>
 
@@ -55,11 +83,13 @@ export default {
 <style lang="scss" scoped>
   #sidebar {
     position: fixed;
-    z-index: 2;
+    top: 0;
+    left: 0;
+    transform: translateZ(0);
+    z-index: 900;
     width: 80px;
-    min-height: 100vh;
-    padding: 70px 10px 10px 10px;
-    display: block;
+    height: 100vh;
+    padding: 70px 0px;
     background-color: #212121;
     color: #cccccc;
     box-shadow: 0px 0px 15px 2px rgba(#000, .4);
@@ -72,17 +102,21 @@ export default {
     &:hover, &.lock {
       width: 260px;
     }
-    &.lock {
-      position: relative;
-    }
 
     @media only screen and (max-width: 800px) {
-      position: relative;
       width: 260px;
       margin-left: -260px;
+      // min-height: calc(100vh + 50%);
       &.expanded {
         margin-left: 0px;
       }
+    }
+
+    section {
+      max-height: calc(100vh - 70px);
+      // background-color: #414141;
+      padding: 0 10px;
+      overflow-y: scroll;
     }
 
 
@@ -96,7 +130,6 @@ export default {
     align-items: center;
     border-radius: 22px;
     background-color: #212121;
-    // border: 20px solid #212121;
     position: absolute;
     right: 10px;
     top: 15px;

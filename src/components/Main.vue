@@ -1,5 +1,5 @@
 <template lang="pug">
-  #main(:class="{'sidebar-expanded' : sidebarExpanded}")
+  #main(:class="{'sidebar-locked': $store.getters.sidebarLocked, 'sidebar-expanded': $store.getters.sidebarExpanded}")
     header
       nav
         div.toggle-sidebar
@@ -37,18 +37,20 @@ export default {
 <style lang="scss" scoped>
   #main {
     background-color: #FAFAFA;
-    width: 100%;
-    min-height: 100vh;
-    background-color: #FAFAFA;
+    width: calc(100% - 80px);
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 50px;
     margin-left: 80px;
 
-    // transition-property: margin-left;
-    // transition-duration: .1s;
-    // transition-timing-function: ease;
-
-    &.sidebar-expanded {
+    @media only screen and (max-width: 800px) {
       margin-left: 0px;
-      width: calc(100vw - 260px);
+    }
+
+    &.sidebar-locked {
+      margin-left: 260px;
+      width: calc(100% - 260px);
     }
 
     header {
@@ -81,12 +83,6 @@ export default {
     #container {
       margin-top: -20px;
     }
-
-    @media only screen and (max-width: 800px) {
-      width: 100vw;
-      margin-left: 0px;
-    }
-
 
   }
 </style>

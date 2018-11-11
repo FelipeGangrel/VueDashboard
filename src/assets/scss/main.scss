@@ -2,21 +2,20 @@
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
 
 html, body {
-  margin: 0;
-  padding: 0;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
-
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 2px;
+  height: 2px;
 }
 ::-webkit-scrollbar-button {
   width: 0px;
   height: 0px;
 }
 ::-webkit-scrollbar-thumb {
-  background:#cccccc;
+  background: #313131;
   border: 0px none #ffffff;
   border-radius: 50px;
 }
@@ -27,7 +26,7 @@ html, body {
   background: #000000;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(#000000, .5);
+  background: rgba(#212121, .5);
   border: 0px none #ffffff;
   border-radius: 50px;
 }
@@ -40,5 +39,6 @@ html, body {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
 
 

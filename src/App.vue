@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app(:class="{'sidebar-expanded': sidebarExpanded}" ref="app")
+  #App(:class="{'sidebar-expanded': $store.getters.sidebarExpanded}")
     v-sidebar
     v-main
       router-view
@@ -21,7 +21,6 @@ export default {
     return {
     }
   },
-
   computed: {
     sidebarExpanded() {
       return this.$store.getters.sidebarExpanded;
@@ -36,16 +35,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  #app {
-    display: flex;
-    justify-content: flex-start;
+  #App {
+    // display: flex;
+    // justify-content: flex-start;
+    // align-content: stretch;
+    display: block;
     background-color: #FAFAFA;
-    width: 100vw;
+    max-height: calc(100vh + 300px);
+    overflow: hidden;
     min-height: 100vh;
 
-    transition-property: width;
-    transition-duration: .35s;
-    transition-timing-function: linear;
+    &.sidebar-expanded {
+      @media only screen and (max-width: 800px) {
+        width: calc(100vw + 260px);
+      }
+    }
+
+    @media only screen and (max-width: 800px) {
+      // min-height: 12000px;
+    }
+
   }
 </style>
 
