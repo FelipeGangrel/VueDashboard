@@ -37,9 +37,9 @@
             hr
             b-form-row(align-h="center")
               b-col(col md="4")
-                b-button(type="submit" variant="primary" block) Enviar
+                b-button(type="submit" variant="primary shadow" block) Enviar
               b-col(col md="auto")
-                b-button(type="reset" variant="secondary" block) Limpar
+                b-button(type="reset" variant="secondary shadow" block) Limpar
 
 
 

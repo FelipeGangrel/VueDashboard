@@ -14,12 +14,13 @@ export default {
   #PageContent {
     @include bounceInUp();
     // margin-top: -50px;
-    background-color: rgba(#FAFAFA, .9);
+    background-color: rgba(#f1f1f1, 1);
     position: relative;
     min-height: calc(100vh - 200px);
+    height: 100%;
     margin-top: 200px;
       #content {
-        position: absolute;
+        position: relative;
         width: 100%;
         top: -80px;
       }
