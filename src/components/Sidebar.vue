@@ -4,41 +4,17 @@
     @mouseout="mouseOver=false"
     :class="{'lock': $store.getters.sidebarLocked, 'expanded': $store.getters.sidebarExpanded}")
 
-    div.lock-toggle(@click="toggleLock")
-      fa-icon(icon="list-ul" v-show="lock")
-      fa-icon(icon="bars" v-show="!lock")
+    div.lock-toggle(@click="toggleLock" v-show="isExpanded")
+      fa-icon(icon="list-ul" v-show="$store.getters.sidebarLocked")
+      fa-icon(icon="bars" v-show="!$store.getters.sidebarLocked")
 
     section
-      v-sidebar-menu(:icon="['fab','google']" title="Components")
-        v-sidebar-menu-item(short="ca" title="Cards")
-        v-sidebar-menu-item(short="bt" title="Buttons")
-        v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="cube" title="Components")
-        v-sidebar-menu-item(short="ca" title="Cards")
-        v-sidebar-menu-item(short="bt" title="Buttons")
-        v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="user" title="Components")
-        v-sidebar-menu-item(short="ca" title="Cards")
-        v-sidebar-menu-item(short="bt" title="Buttons")
-        v-sidebar-menu-item(short="f" title="Form")
-        v-sidebar-menu-item(short="ca" title="Cards")
-        v-sidebar-menu-item(short="bt" title="Buttons")
-        v-sidebar-menu-item(short="f" title="Form")
-        v-sidebar-menu-item(short="ca" title="Cards")
-        v-sidebar-menu-item(short="bt" title="Buttons")
-        v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="user" title="Components")
-        v-sidebar-menu-item(short="ca" title="Cards")
-        v-sidebar-menu-item(short="bt" title="Buttons")
-        v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="user" title="Components")
-        v-sidebar-menu-item(short="ca" title="Cards")
-        v-sidebar-menu-item(short="bt" title="Buttons")
-        v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="user" title="Components")
-        v-sidebar-menu-item(short="ca" title="Cards")
-        v-sidebar-menu-item(short="bt" title="Buttons")
-        v-sidebar-menu-item(short="f" title="Form")
+      v-sidebar-menu(:icon="['fas','cube']" title="Páginas")
+        v-sidebar-menu-item(short="ds" title="Dashboard" to="/")
+        v-sidebar-menu-item(short="ca" title="Cards" to="/cards")
+        v-sidebar-menu-item(short="bt" title="Buttons" to="/buttons")
+        v-sidebar-menu-item(short="f" title="Form" to="/forms")
+
 
 
 
@@ -57,7 +33,6 @@ export default {
   data() {
     return {
       mouseOver: false,
-      lock: false,
     }
   },
   computed: {
@@ -130,12 +105,12 @@ export default {
     justify-content: space-around;
     align-items: center;
     border-radius: 22px;
-    background-color: #212121;
+    background-color: #313131;
     position: absolute;
-    right: 10px;
+    right: 15px;
     top: 15px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 12px;
     @media only screen and (max-width: 800px) {
       display: none;
     }

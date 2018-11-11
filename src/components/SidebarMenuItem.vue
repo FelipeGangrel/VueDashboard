@@ -1,7 +1,7 @@
 <template lang="pug">
   #item(ref="item")
     div.short {{ short }}
-    div.title(v-show="sidebarExpanded") {{ title }}
+    router-link.title(v-show="sidebarExpanded" tag="div" :to="to") {{ title }}
 </template>
 
 <script>
@@ -17,6 +17,7 @@ export default {
   props: {
     title: String,
     short: String,
+    to: String,
   },
   computed: {
     sidebarExpanded() {
@@ -50,7 +51,6 @@ export default {
       background-color: rgba(#FFFFFF, .1);
       color: #FFFFFF;
     }
-
     div.short {
       width: 28px;
       text-transform: uppercase;
@@ -61,6 +61,7 @@ export default {
       text-transform: uppercase;
       font-size: 11px;
       margin-left: 16px;
+      text-align: left;
       @include fadeInLeft();
     }
   }
