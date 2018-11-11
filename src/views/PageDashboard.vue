@@ -30,12 +30,12 @@
         b-row
           b-col(class="mb-4")
             b-card(title="Vendedores")
-              b-table(striped hover :items="items" :fields="fields")
+              b-table(striped hover responsive :items="items" :fields="fields")
 
         b-row
           b-col(class="mb-4")
             b-card(title="Vendedores" class="bg-dark text-light")
-              b-table(striped dark hover :items="items" :fields="fields")
+              b-table(striped dark fixed responsive hover :items="items" :fields="fields")
 
 </template>
 
@@ -49,17 +49,17 @@ export default {
     return {
       fields: {
         last_name: {
-          label: "Person last name",
+          label: "Last name",
           sortable: true
         },
         first_name: {
-          label: "Person first name",
+          label: "Name",
           sortable: false
         },
         foo: {
           // This key overrides `foo`!
           key: "age",
-          label: "Person age",
+          label: "Age",
           sortable: true
         },
         city: {
