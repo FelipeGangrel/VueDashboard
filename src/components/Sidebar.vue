@@ -9,7 +9,7 @@
       fa-icon(icon="bars" v-show="!lock")
 
     section
-      v-sidebar-menu(icon="cube" title="Components")
+      v-sidebar-menu(:icon="['fab','google']" title="Components")
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
@@ -17,30 +17,29 @@
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="cube" title="Components")
+      v-sidebar-menu(icon="user" title="Components")
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="cube" title="Components")
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="cube" title="Components")
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="cube" title="Components")
+      v-sidebar-menu(icon="user" title="Components")
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="cube" title="Components")
+      v-sidebar-menu(icon="user" title="Components")
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
-      v-sidebar-menu(icon="cube" title="Components")
+      v-sidebar-menu(icon="user" title="Components")
         v-sidebar-menu-item(short="ca" title="Cards")
         v-sidebar-menu-item(short="bt" title="Buttons")
         v-sidebar-menu-item(short="f" title="Form")
+
 
 
 </template>
@@ -106,6 +105,7 @@ export default {
     @media only screen and (max-width: 800px) {
       width: 260px;
       margin-left: -260px;
+      position: relative;
       // min-height: calc(100vh + 50%);
       &.expanded {
         margin-left: 0px;
@@ -115,7 +115,8 @@ export default {
     section {
       max-height: calc(100vh - 70px);
       // background-color: #414141;
-      padding: 0 10px;
+      padding: 0 17px;
+      margin-right: -2px;
       overflow-y: scroll;
     }
 

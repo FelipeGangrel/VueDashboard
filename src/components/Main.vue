@@ -46,11 +46,16 @@ export default {
 
     @media only screen and (max-width: 800px) {
       margin-left: 0px;
+      width: 100%;
     }
 
     &.sidebar-locked {
       margin-left: 260px;
       width: calc(100% - 260px);
+      @media only screen and (max-width: 800px) {
+        width: calc(100vw);
+        margin-left: 0px;
+      }
     }
 
     header {

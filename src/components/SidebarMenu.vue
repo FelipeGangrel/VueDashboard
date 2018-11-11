@@ -1,7 +1,7 @@
 <template lang="pug">
   #menu
-    header(ref="menu" @click="toggleMenu")
-      div.icon: fa-icon(icon="home")
+    header(ref="menu" @click="toggleMenu" :class="{open: active}")
+      div.icon: fa-icon(:icon="icon")
       div.title(v-show="sidebarExpanded") {{ title }}
       div.angle(v-show="sidebarExpanded"): fa-icon(icon="angle-down")
 
@@ -19,9 +19,7 @@ export default {
       active: false,
     }
   },
-  props: {
-    title: String,
-  },
+  props: ['icon', 'title'],
   computed: {
     sidebarExpanded() {
       return this.$store.getters.sidebarExpanded;
@@ -51,6 +49,10 @@ export default {
       transition-property: color, background-color;
       transition-duration: .35s, .36s;
       transition-timing-function: ease, ease;
+
+      &.open {
+        background-color: rgba(#FFFFFF, .3);
+      }
 
       &:hover {
         background-color: rgba(#FFFFFF, .1);
