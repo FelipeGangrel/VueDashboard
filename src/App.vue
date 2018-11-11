@@ -2,7 +2,8 @@
   #App(:class="{'sidebar-expanded': $store.getters.sidebarExpanded}")
     v-sidebar
     v-main
-      router-view
+      transition(enter-active-class="fadeInLeft")
+        router-view
 </template>
 
 <script>
@@ -49,12 +50,13 @@ export default {
     &.sidebar-expanded {
       @media only screen and (max-width: 800px) {
         width: calc(100vw + 260px);
-        // margin-left: 260px;
-        // overflow: scroll;
       }
     }
 
+  }
 
+  .fadeInLeft {
+    @include fadeInLeft();
   }
 </style>
 

@@ -1,7 +1,8 @@
 <template lang="pug">
-  #Home
+  #PageDashboard
+    v-page-header(title="Dashboard")
     b-container(fluid)
-      b-card(title="Home")
+      b-card
         b-row
           b-col
             p Labore consequat cupidatat id consequat proident in reprehenderit. Dolor nulla Lorem cupidatat officia sit. Deserunt tempor duis elit consequat voluptate aute esse sunt.
@@ -12,3 +13,13 @@
           b-col
             p Labore consequat cupidatat id consequat proident in reprehenderit. Dolor nulla Lorem cupidatat officia sit. Deserunt tempor duis elit consequat voluptate aute esse sunt.
 </template>
+
+<script>
+import Page from "./Page";
+
+export default {
+  name: "PageDashboard",
+  extends: Page
+}
+</script>
+

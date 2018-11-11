@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import PageHome from "./views/PageHome.vue";
+import PageDashboard from "./views/PageDashboard.vue";
 import PageCards from "./views/PageCards.vue";
 
 
@@ -10,8 +10,8 @@ Vue.use(Router);
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: PageHome,
+    name: "dashboard",
+    component: PageDashboard,
   },
   {
     path: "/cards",
