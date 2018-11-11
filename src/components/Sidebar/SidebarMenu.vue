@@ -1,12 +1,12 @@
 <template lang="pug">
-  #menu
-    header(ref="menu" @click="toggleMenu" :class="{open: active}")
+  #SidebarMenu
+    header(ref="menu" @click="toggleMenu" :class="{open: active }")
       div.icon: fa-icon(:icon="icon")
       div.title(v-show="sidebarExpanded") {{ title }}
       div.angle(v-show="sidebarExpanded"): fa-icon(icon="angle-down")
 
     transition(enter-active-class="fadeInUp" leave-active-class="fadeOutDown")
-      section(v-show="active" :class="{open: active}")
+      section(v-show="active" :class="{open: active }")
         slot
 </template>
 
@@ -15,11 +15,13 @@ export default {
   name: "SidebarMenu",
   data() {
     return {
-      width: 0,
       active: false,
     }
   },
   props: ['icon', 'title'],
+  mounted() {
+    this.checkIfActive();
+  },
   computed: {
     sidebarExpanded() {
       return this.$store.getters.sidebarExpanded;
@@ -28,13 +30,22 @@ export default {
   methods: {
     toggleMenu() {
       this.active = !this.active;
+    },
+    checkIfActive () {
+      const slotElements = this.$slots.default;
+      const slotElementsActives = slotElements.filter(VNode => {
+        return VNode.elm.classList.contains('router-link-exact-active');
+      });
+      if (slotElementsActives.length) {
+        this.active = true;
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  #menu {
+  #SidebarMenu {
     cursor: pointer;
     margin: 5px 0;
     header {
@@ -51,7 +62,7 @@ export default {
       transition-timing-function: ease, ease;
 
       &.open {
-        background-color: rgba(#FFFFFF, .3);
+        background-color: rgba(#FFFFFF, .1);
       }
 
       &:hover {
@@ -75,6 +86,7 @@ export default {
     section {
       max-height: 0;
       overflow: hidden;
+      padding: 5px 0;
 
       transition-property: max-width;
       transition-duration: 1s;
@@ -91,7 +103,5 @@ export default {
   .fadeOutDown {
     @include fadeOutDown();
   }
-
-
 </style>
 

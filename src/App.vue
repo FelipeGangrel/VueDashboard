@@ -9,8 +9,8 @@
 <script>
 import ElementResizeEvent from "element-resize-event";
 
-import Sidebar from "./components/Sidebar";
-import Main from "./components/Main";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Main from "./components/Main/Main";
 
 export default {
   name: "App",

@@ -1,5 +1,5 @@
 <template lang="pug">
-  aside#sidebar(
+  aside#Sidebar(
     @mouseover="mouseOver=true"
     @mouseout="mouseOver=false"
     :class="{'lock': $store.getters.sidebarLocked, 'expanded': $store.getters.sidebarExpanded}")
@@ -9,24 +9,23 @@
       fa-icon(icon="bars" v-show="!$store.getters.sidebarLocked")
 
     section
-      v-sidebar-menu(:icon="['fas','cube']" title="Páginas")
-        v-sidebar-menu-item(short="ds" title="Dashboard" to="/")
+      v-sidebar-item(icon="cube" title="Dashboard" to="/")
+      v-sidebar-menu(:icon="['fas','cube']" title="Menu 1")
         v-sidebar-menu-item(short="ca" title="Cards" to="/cards")
         v-sidebar-menu-item(short="bt" title="Buttons" to="/buttons")
         v-sidebar-menu-item(short="f" title="Form" to="/forms")
 
-
-
-
 </template>
 
 <script>
+import SidebarItem from "./SidebarItem";
 import SidebarMenu from "./SidebarMenu";
 import SidebarMenuItem from "./SidebarMenuItem";
 
 export default {
   name: "Aside",
   components: {
+    "v-sidebar-item": SidebarItem,
     "v-sidebar-menu": SidebarMenu,
     "v-sidebar-menu-item": SidebarMenuItem,
   },
@@ -55,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  #sidebar {
+  #Sidebar {
     position: fixed;
     top: 0;
     left: 0;

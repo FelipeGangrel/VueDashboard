@@ -1,7 +1,7 @@
 <template lang="pug">
-  #item(ref="item")
+  router-link#SidebarMenuItem(tag="div" :to="to")
     div.short {{ short }}
-    router-link.title(v-show="sidebarExpanded" tag="div" :to="to") {{ title }}
+    div.title(v-show="sidebarExpanded") {{ title }}
 </template>
 
 <script>
@@ -10,9 +10,7 @@ import ElementResizeEvent from "element-resize-event";
 export default {
   name: "SidebarMenuItem",
   data() {
-    return {
-      width: 0,
-    }
+    return {}
   },
   props: {
     title: String,
@@ -24,16 +22,11 @@ export default {
       return this.$store.getters.sidebarExpanded;
     }
   },
-  methods: {
-    handleResize(width) {
-      this.$set(this,"width", width);
-    }
-  }
 }
 </script>
 
 <style lang="scss" scoped>
-  #item {
+  #SidebarMenuItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +34,7 @@ export default {
     height: 44px;
 
     border-radius: 22px;
-    margin: 4px 0;
+    margin: 5px 0;
 
     transition-property: color, background-color;
     transition-duration: .35s, .36s;
@@ -53,6 +46,7 @@ export default {
     }
     div.short {
       width: 28px;
+      font-size: 12px;
       text-transform: uppercase;
       text-align: center;
     }
@@ -63,6 +57,11 @@ export default {
       margin-left: 16px;
       text-align: left;
       @include fadeInLeft();
+    }
+
+    &.router-link-exact-active {
+      background-color: rgba(#fafafa, 1);
+      color: $primary;
     }
   }
 </style>

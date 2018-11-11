@@ -13,7 +13,9 @@ module.exports = {
         // passando opções pro sass-loader
         sass: {
             // @/ é um alias para src/
-            data: `@import "~animate-scss/animate.scss";`,
+            data: `@import "@/assets/scss/_functions.scss";
+                   @import "@/assets/scss/_variables.scss";
+                   @import "~animate-scss/animate.scss";`,
             // includePaths: path.resolve(__dirname, 'src/assets/scss')
         }
     }
