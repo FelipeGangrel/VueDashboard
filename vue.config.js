@@ -13,8 +13,8 @@ module.exports = {
         // passando opções pro sass-loader
         sass: {
             // @/ é um alias para src/
-            data: `@import "@/assets/scss/_functions.scss";
-                   @import "@/assets/scss/_variables.scss";
+            data: `@import "@/assets/scss/bootstrap/_functions.scss";
+                   @import "@/assets/scss/bootstrap/_variables.scss";
                    @import "~animate-scss/animate.scss";`,
             // includePaths: path.resolve(__dirname, 'src/assets/scss')
         }

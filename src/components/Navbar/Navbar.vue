@@ -12,7 +12,7 @@
             router-link.menu-item(to="/perfil" tag="div")
               div.icon: fa-icon(icon="user")
               div.title Meu perfil
-            router-link.menu-item(to="/perfil" tag="div")
+            router-link.menu-item(to="/logout" tag="div")
               div.icon: fa-icon(icon="sign-out-alt")
               div.title Sair
 </template>
@@ -63,10 +63,8 @@ export default {
       justify-content: space-between;
       align-items: center;
       color: #FFFFFF;
-      // background-color: #212121;
       padding: 0 20px;
       height: 80px;
-      // background-color: rgba(red, .5);
       .toggle-sidebar {
         @media only screen and (min-width: 801px) {
           display: none;
@@ -114,7 +112,10 @@ export default {
             background-color: #f1f1f1;
           }
           &:first-child {
-
+            border-radius: 4px 4px 0px 0px;
+          }
+          &:last-child {
+            border-radius: 0px 0px 4px 4px;
           }
           div.icon {
             width: 24px;
