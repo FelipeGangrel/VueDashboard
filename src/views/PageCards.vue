@@ -1,6 +1,6 @@
 <template lang="pug">
   #PageCards
-    v-page-header(title="Cards")
+    v-page-header
     v-page-content
       b-container(fluid)
         b-row(align-h="center" align-content="stretch")
@@ -20,6 +20,9 @@ import Page from "../components/Page/Page";
 export default {
   name: "PapeCards",
   extends: Page,
+  created() {
+    this.setPageTitle('Cards');
+  }
 }
 </script>
 

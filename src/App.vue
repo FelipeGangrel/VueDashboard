@@ -2,6 +2,7 @@
   #App(:class="{'sidebar-expanded': $store.getters.sidebarExpanded}")
     v-sidebar
     v-main
+      v-navbar
       transition(enter-active-class="fadeInLeft")
         router-view
 </template>
@@ -11,11 +12,13 @@ import ElementResizeEvent from "element-resize-event";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import Main from "./components/Main/Main";
+import Navbar from "./components/Navbar/Navbar";
 
 export default {
   name: "App",
   components: {
     "v-sidebar": Sidebar,
+    "v-navbar": Navbar,
     "v-main": Main,
   },
   data() {
@@ -40,8 +43,7 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-content: stretch;
-    // display: block;
-    background-color: #FAFAFA;
+
     max-height: calc(100vh + 300px);
     overflow: hidden;
     min-height: 100vh;

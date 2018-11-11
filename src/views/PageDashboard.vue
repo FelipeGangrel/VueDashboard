@@ -1,6 +1,6 @@
 <template lang="pug">
   #PageDashboard
-    v-page-header(title="Dashboard")
+    v-page-header
     v-page-content
       b-container(fluid)
         b-card
@@ -26,7 +26,10 @@ import Page from "../components/Page/Page";
 
 export default {
   name: "PageDashboard",
-  extends: Page
+  extends: Page,
+  created() {
+    this.setPageTitle('Dashboard');
+  }
 }
 </script>
 

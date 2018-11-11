@@ -2,6 +2,7 @@ export default {
   state: {
     sidebarExpanded: false,
     sidebarLocked: false,
+    pageTitle: '',
   },
   mutations: {
     sidebarExpanded(state, payload) {
@@ -10,6 +11,9 @@ export default {
     sidebarLocked(state, payload) {
       state.sidebarLocked = payload;
     },
+    setPageTitle(state, payload) {
+      state.pageTitle = payload;
+    },
   },
   actions: {
     sidebarExpanded ({commit}, payload) {
@@ -17,10 +21,14 @@ export default {
     },
     sidebarLocked ({commit}, payload) {
       commit('sidebarLocked', payload);
-    }
+    },
+    setPageTitle ({commit}, payload) {
+      commit('setPageTitle', payload);
+    },
   },
   getters: {
     sidebarExpanded: (s) => s.sidebarExpanded,
     sidebarLocked: (s) => s.sidebarLocked,
+    pageTitle: (s) => s.pageTitle,
   },
 }

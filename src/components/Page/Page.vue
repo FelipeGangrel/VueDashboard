@@ -7,6 +7,11 @@ export default {
   components: {
     "v-page-header": PageHeader,
     "v-page-content": PageContent
+  },
+  methods: {
+    setPageTitle(title) {
+      this.$store.dispatch('setPageTitle', title);
+    }
   }
 }
 </script>

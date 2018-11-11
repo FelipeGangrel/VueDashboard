@@ -23,7 +23,7 @@ import SidebarMenu from "./SidebarMenu";
 import SidebarMenuItem from "./SidebarMenuItem";
 
 export default {
-  name: "Aside",
+  name: "Sidebar",
   components: {
     "v-sidebar-item": SidebarItem,
     "v-sidebar-menu": SidebarMenu,
@@ -59,10 +59,10 @@ export default {
     top: 0;
     left: 0;
     transform: translateZ(0);
-    z-index: 900;
+    z-index: 90;
     width: 80px;
     height: 100vh;
-    padding: 70px 0px;
+    padding: 120px 0px;
     background-color: #212121;
     color: #cccccc;
     box-shadow: 0px 0px 15px 2px rgba(#000, .4);
@@ -107,7 +107,7 @@ export default {
     background-color: #313131;
     position: absolute;
     right: 15px;
-    top: 15px;
+    top: 20px;
     cursor: pointer;
     font-size: 12px;
     @media only screen and (max-width: 800px) {

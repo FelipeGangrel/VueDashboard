@@ -17,12 +17,12 @@ export default {
 
 <style lang="scss" scoped>
   #main {
-    background-color: #FAFAFA;
+    // background-color: #FAFAFA;
     width: calc(100% - 80px);
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding-bottom: 50px;
+
     margin-left: 80px;
 
     @media only screen and (max-width: 800px) {
