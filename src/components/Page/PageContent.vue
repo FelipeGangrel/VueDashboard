@@ -17,8 +17,10 @@ export default {
     background-color: rgba(#FAFAFA, .9);
     position: relative;
     min-height: calc(100vh - 200px);
+    margin-top: 200px;
       #content {
         position: absolute;
+        width: 100%;
         top: -80px;
       }
   }

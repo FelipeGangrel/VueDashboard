@@ -1,6 +1,5 @@
 <template lang="pug">
   #PageDashboard
-    v-page-header
     v-page-content
       b-container(fluid)
         b-card

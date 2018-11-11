@@ -1,6 +1,5 @@
 <template lang="pug">
   #PageCards
-    v-page-header
     v-page-content
       b-container(fluid)
         b-row(align-h="center" align-content="stretch")
