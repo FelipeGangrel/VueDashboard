@@ -11,7 +11,7 @@
     section
       v-sidebar-item(icon="cube" title="Dashboard" to="/")
       v-sidebar-menu(:icon="['fas','cube']" title="Menu 1")
-        v-sidebar-menu-item(short="f" title="Form" to="/forms")
+        v-sidebar-menu-item(short="f" title="Forms" to="/forms")
         v-sidebar-menu-item(short="ca" title="Cards" to="/cards")
         v-sidebar-menu-item(short="bt" title="Buttons" to="/buttons")
 
