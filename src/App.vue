@@ -3,7 +3,7 @@
     v-sidebar
     v-main
       v-navbar
-      transition(enter-active-class="fadeIn")
+      transition(enter-active-class="fade")
         router-view
 </template>
 
@@ -57,8 +57,8 @@ export default {
 
   }
 
-  .fadeInLeft {
-    @include fadeInLeft();
+  .bounce {
+    @include bounce();
     transition-duration: 1s;
   }
 </style>
